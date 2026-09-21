@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roti Berkah Bunda - Kelezatan & Keberkahan di Setiap Gigitan</title>
+
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* === VARIABEL WARNA & RESET === */
+        :root {
+            --primary-red: #D32F2F;
+            --dark-red: #9a0007;
+            --light-red-bg: #FFEBEE;
+            --white: #FFFFFF;
+            --text-dark: #222222;
+            --text-gray: #666666;
+            --bg-light: #F9F9F9;
+            --accent-gold: #FFC107;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* === TOP PROMO BAR === */
+        .promo-bar {
+            background-color: var(--dark-red);
+            color: var(--white);
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* === NAVBAR / HEADER === */
+        header {
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column; /* tulisan di bawah logo */
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+}
+
+        .logo img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    border-radius: 50%;
+        }
+
+.logo span {
+    display: block;
+}
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #FFCDD2;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            background: linear-gradient(rgba(183, 28, 28, 0.85), rgba(154, 0, 7, 0.85)), 
+                        url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero-badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 650px;
+            color: #f1f1f1;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .btn-primary {
+            padding: 12px 30px;
+            background-color: var(--white);
+            color: var(--primary-red);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background-color: #f8f8f8;
+        }
+
+        /* === STATS BAR === */
+        .stats-bar {
+            background: var(--white);
+            margin: -40px 5% 50px 5%;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            color: var(--primary-red);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* === SECTION COMMON === */
+        section {
+            padding: 60px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            color: var(--primary-red);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            width: 50%;
+            height: 3px;
+            background-color: var(--primary-red);
+            position: absolute;
+            bottom: -8px;
+            left: 25%;
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-gray);
+        }
+
+        /* === KEUNGGULAN (FEATURES) === */
+        .features {
+            background-color: var(--bg-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-box {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-red);
+        }
+
+        .feature-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(211, 47, 47, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 15px;
+        }
+
+        /* === MENU SECTION === */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+
+        .menu-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .menu-img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-card:hover .menu-img {
+            transform: scale(1.05);
+        }
+
+        .menu-img-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .menu-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .menu-content h3 {
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            font-size: 1.25rem;
+        }
+
+        .menu-content p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .menu-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-red);
+        }
+
+        .btn-order {
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-order:hover {
+            background-color: var(--dark-red);
+        }
+
+        /* === TESTIMONIALS === */
+        .testimonials {
+            background-color: var(--light-red-bg);
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .testi-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+
+        .testi-card p {
+            font-style: italic;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .client-name {
+            font-weight: 700;
+            color: var(--primary-red);
+            font-size: 0.9rem;
+        }
+
+        /* === FAQ ACCORDION === */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 18px 20px;
+            background: var(--bg-light);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #f0f0f0;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 18px 20px;
+            max-height: 150px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+            color: var(--primary-red);
+        }
+
+        /* === FOOTER === */
+        footer {
+            background-color: #1a1a1a;
+            color: var(--white);
+            padding: 50px 5% 20px 5%;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: var(--primary-red);
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+
+        .footer-col p, .footer-col ul li {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            list-style: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            background: rgba(255,255,255,0.1);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-red);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            color: #777;
+            font-size: 0.85rem;
+        }
+
+        /* === FLOATING WHATSAPP BUTTON (WITH PULSE) === */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float i {
+            font-size: 22px;
+        }
+
+        /* === ANIMATIONS (KEYFRAMES) === */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Scroll Reveal Effect Class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === RESPONSIVE MEDIA QUERIES === */
+        @media (max-width: 768px) {
+            nav ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-red);
+                flex-direction: column;
+                padding: 20px;
+                display: none;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .whatsapp-float span {
+                display: none; /* Hanya tampilkan ikon di layar HP sangat kecil */
+            }
+            .whatsapp-float {
+                padding: 15px;
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Top Promo Bar -->
+    <div class="promo-bar">
+        <i class="fa-solid fa-bullhorn"></i> PROMO SPESIAL: Gratis Ongkir Se-Kota Palembang untuk Pemesanan Minimum Rp 100.000!
+    </div>
+
+    <!-- 2. Header / Navigasi -->
+    <header>
+        <div class="logo">
+    <img src="./foto/logo.jpeg" alt="Logo Roti Berkah Bunda">
+    <span>Roti Berkah Bunda</span>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- 3. Hero Section -->
+    <section id="beranda" class="hero">
+        <div class="hero-badge"><i class="fa-solid fa-award"></i> Resep Asli Bunda Sejak 2018</div>
+        <h1>Kelembutan & Kelezatan Nyata</h1>
+        <p>Nikmati sajian roti berkualitas premium yang dibuat dari bahan pilihan tanpa pengawet. Fresh dari oven setiap pagi untuk keluarga tercinta.</p>
+        <div class="hero-btns">
+            <a href="#menu" class="btn-primary">Pesan Sekarang</a>
+        </div>
+    </section>
+
+
+    <!-- 6. Menu Section (4 Menu Utama) -->
+    <section id="menu">
+        <div class="section-title reveal">
+            <h2>Menu Best Seller Roti Berkah Bunda</h2>
+            <p>Pilihan varian roti paling favorit dan terlaris</p>
+        </div>
+        <div class="menu-grid">
+            
+            <!-- Menu 1 -->
+            <div class="menu-card reveal">
+                <span class="menu-badge">TERLARIS</span>
+                <div class="menu-img-wrapper">
+                    <img src="./foto/coklat-keju.jpeg"
+                    alt="coklat-keju"
+                    class="menu-img">
+                </div>
+                <div class="menu-content">
+                    <h3>Coklat Keju</h3>
+                    <p>Perpaduan sempurna antara rasa manis gurih yang seimbang.</p>
+                    <div class="menu-bottom">
+                        <span class="price">Rp 5.000</span>
+                        <a href="https://wa.me/6281369603676?text=Halo%20Admin,%20saya%20mau%20pesan%20*Roti%20Sobek%20Lumer*" class="btn-order" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Pesan
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu 2 -->
+            <div class="menu-card reveal">
+                <div class="menu-img-wrapper">
+                    <img src="./foto/Keju.jpeg" alt="Keju" class="menu-img">
+                </div>
+                <div class="menu-content">
+                    <h3>Keju</h3>
+                    <p>Didominasi oleh cita rasa gurih (savory), asin lembut, dan aroma khas keju.</p>
+                    <div class="menu-bottom">
+                        <span class="price">Rp 5.000</span>
+                        <a href="https://wa.me/6281369603676?text=Halo%20Admin,%20saya%20mau%20pesan%20*Roti%20Tawar%20Susu*" class="btn-order" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Pesan
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu 3 -->
+            <div class="menu-card reveal">
+                <span class="menu-badge" style="background:#2E7D32;">SEHAT</span>
+                <div class="menu-img-wrapper">
+                    <img src="./foto/Mexico Mesisi.jpeg" alt="Mexico Mesisi" class="menu-img">
+                </div>
+                <div class="menu-content">
+                    <h3>Mexico Mesis</h3>
+                    <p>Rasa manis dengan lapisan topping khas roti Mexico (bertekstur lembut/sedikit renyah di luar) dan taburan meses cokelat.</p>
+                    <div class="menu-bottom">
+                        <span class="price">Rp 5.000</span>
+                        <a href="https://wa.me/6281369603676?text=Halo%20Admin,%20saya%20mau%20pesan%20*Roti%20Gandum%20Utuh*" class="btn-order" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Pesan
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu 4 -->
+            <div class="menu-card reveal">
+                <div class="menu-img-wrapper">
+                    <img src="./foto/Rotibro.jpeg" alt="Rotibro" class="menu-img">
+                </div>
+                <div class="menu-content">
+                    <h3>Rotibro</h3>
+                    <p>Roti bun bulat khas dengan topping krim mentega/kopi/karamel yang dipanggang hingga membentuk lapisan garing halus di luar dan lembut di dalam.</p>
+                    <div class="menu-bottom">
+                        <span class="price">Rp 5.000</span>
+                        <a href="https://wa.me/6281369603676?text=Halo%20Admin,%20saya%20mau%20pesan%20*Kue%20Kering%20Premium*" class="btn-order" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Pesan
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 7. Testimonials Section -->
+    <section id="testi" class="testimonials">
+        <div class="section-title reveal">
+            <h2>Apa Kata Pelanggan?</h2>
+            <p>Pengalaman rasa mereka yang sudah mencoba Roti Berkah Bunda</p>
+        </div>
+        <div class="testi-grid">
+            <div class="testi-card reveal">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"Rotinya beneran se-lembut itu! Anak-anak saya suka banget sama yang isian cokelat lumer. Pasti langganan terus!"</p>
+                <div class="client-name">- Ibu Anisa, Palembang</div>
+            </div>
+            <div class="testi-card reveal">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"Roti meksiko nya enak, manis nya pas. Pengiriman cepat dan kondisi roti masih hangat pas sampai."</p>
+                <div class="client-name">- Pak Budi, Ilir Barat</div>
+            </div>
+            <div class="testi-card reveal">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"Roti kejunya gokil, berasa banget ngejunya. Sangat recommended buat dimakan sendiri atau acara keluarga."</p>
+                <div class="client-name">- Mbak Rina, Sako</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Roti Berkah Bunda</h4>
+                <p>Sajian roti manis, gurih, dan lezat dengan resep bunda yang selalu menjaga keaslian cita rasa dan kebersihan produk.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Jam Operasional</h4>
+                <p><i class="fa-regular fa-clock"></i> Senin - Sabtu: 07:00 - 20:00 WIB</p>
+                <p><i class="fa-regular fa-clock"></i> Minggu: 08:00 - 17:00 WIB</p>
+            </div>
+            <div class="footer-col">
+                <h4>Kontak & Lokasi</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Jl. Sukabangun II Soak Simpur, Sukajaya, Palembang.</p>
+                <p><i class="fa-solid fa-phone"></i> +62 813-6960-3676</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Roti Berkah Bunda. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- 10. Floating WhatsApp Button (Pulsing) -->
+    <a href="https://wa.me/6281369603676?text=Halo%20Admin%20Roti%20Berkah%20Bunda,%20saya%20ingin%20tanya%20produk%20dan%20pemesanan." class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>Pesan via WhatsApp</span>
+    </a>
+
+    <!-- === JAVASCRIPT UNTUK INTERAKTIVITAS & ANIMASI === -->
+    <script>
+        // 1. Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        // Tutup menu seluler jika link diklik
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
+        });
+
+        // 2. FAQ Accordion Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Tutup item faq lain jika sedang terbuka
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                item.classList.toggle('active');
+            });
+        });
+
+        // 3. Scroll Reveal Animation (Intersection Observer API)
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Hanya jalankan sekali saat di-scroll
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+    </script>
+</body>
+</html>
